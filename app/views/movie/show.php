@@ -29,6 +29,37 @@
                     <li><strong>Poster:</strong> <img src="<?php echo $data['movie']['Poster']; ?>" alt="Poster"></li>
                 </ul>
             </div>
+            <div class="card">
+                <h3>Add a Review</h3>
+                <form method="POST" action="index.php?url=movie/addReview">
+                    <input type="hidden" name="movie_id" value="<?php echo $data['movie']['imdbID']; ?>">
+                    <input type="hidden" name="movie_title" value="<?php echo $data['movie']['Title']; ?>">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="review_text" placeholder="Enter your review" required></textarea>
+                    <label for="stars">Stars:</label>
+                    <select name="stars" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3>Reviews</h3>
+                <?php if ($data['reviews']): ?>
+                    <ul>
+                        <?php foreach ($data['reviews'] as $review): ?>
+                            <li><?php echo htmlspecialchars($review['review']); ?> (<?php echo $review['stars']; ?> stars) <br><small>by <?php echo $review['name']; ?> on <?php echo $review['created_at']; ?></small></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else: ?>
+                    <p>No reviews yet.</p>
+                <?php endif; ?>
+            </div>
         <?php else: ?>
             <div class="alert">No movie found.</div>
         <?php endif; ?>

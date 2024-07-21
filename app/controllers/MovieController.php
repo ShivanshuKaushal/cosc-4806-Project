@@ -1,5 +1,12 @@
 <?php
+
 class MovieController extends Controller {
+    private $reviewModel;
+
+    public function __construct() {
+        $this->reviewModel = $this->model('Review');
+    }
+
     public function index() {
         $this->view('movie/search');
     }
@@ -8,7 +15,25 @@ class MovieController extends Controller {
         $title = $_GET['search'] ?? '';
         $movieModel = $this->model('Movie');
         $movie = $movieModel->getMovieByTitle($title);
-        $this->view('movie/show', ['movie' => $movie]);
+        $reviews = $this->reviewModel->getReviews($movie['imdbID']);
+        $this->view('movie/show', ['movie' => $movie, 'reviews' => $reviews]);
+    }
+
+    public function addReview() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $movie_id = $_POST['movie_id'];
+            $review_text = $_POST['review_text'];
+            $stars = $_POST['stars'];
+
+            if ($this->reviewModel->addReview($name, $email, $movie_id, $review_text, $stars)) {
+                header('Location: index.php?url=movie/search&search=' . urlencode($_POST['movie_title']));
+                exit();
+            } else {
+                echo 'Failed to add review. Please try again.';
+            }
+        }
     }
 }
 ?>
