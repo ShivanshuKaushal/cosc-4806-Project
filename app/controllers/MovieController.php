@@ -35,5 +35,17 @@ class MovieController extends Controller {
             }
         }
     }
+    public function generateAIReview() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $movie_title = $_POST['movie_title'];
+            $aiReview = $this->reviewModel->generateAIReview($movie_title);
+
+            if ($aiReview) {
+                echo 'AI Review: ' . $aiReview;
+            } else {
+                echo 'Failed to generate AI review. Please try again.';
+            }
+        }
+    }
 }
 ?>

@@ -28,6 +28,10 @@
                     <li><strong>Awards:</strong> <?php echo $data['movie']['Awards']; ?></li>
                     <li><strong>Poster:</strong> <img src="<?php echo $data['movie']['Poster']; ?>" alt="Poster"></li>
                 </ul>
+                <form method="POST" action="index.php?url=movie/generateAIReview">
+                    <input type="hidden" name="movie_title" value="<?php echo $data['movie']['Title']; ?>">
+                    <button type="submit">Ask AI for Review</button>
+                </form>
             </div>
             <div class="card">
                 <h3>Add a Review</h3>
