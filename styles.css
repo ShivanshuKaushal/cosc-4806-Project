@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #e50914;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e50914;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d40813;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #e50914;
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.card ul li:last-child {
+  border-bottom: none;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.alert {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffcccc;
+  border-radius: 8px;
+  color: #cc0000;
+}
+
+a {
+  color: #e50914;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #d40813;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.review-form {
+  margin-top: 20px;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select,
+.review-form button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.review-list {
+  margin-top: 20px;
+}

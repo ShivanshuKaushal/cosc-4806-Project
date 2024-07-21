@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Search Results</title>
-    <link rel="stylesheet" href="/css/styles.css">
+      <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Movie Search Results</h1>
-        <a href="/movie/index">Back to Search</a>
+        <a href="index.php?url=movie/index" class="back-link">Back to Search</a>
         <?php if ($data['movie'] && isset($data['movie']['Title'])): ?>
             <div class="card">
                 <h2><?php echo $data['movie']['Title']; ?></h2>
@@ -33,7 +33,13 @@
                     <button type="submit">Ask AI for Review</button>
                 </form>
             </div>
-            <div class="card">
+            <?php if (isset($data['aiReview'])): ?>
+                <div class="card">
+                    <h3>AI Review</h3>
+                    <p><?php echo $data['aiReview']; ?></p>
+                </div>
+            <?php endif; ?>
+            <div class="card review-form">
                 <h3>Add a Review</h3>
                 <form method="POST" action="index.php?url=movie/addReview">
                     <input type="hidden" name="movie_id" value="<?php echo $data['movie']['imdbID']; ?>">
@@ -52,7 +58,7 @@
                     <button type="submit">Submit Review</button>
                 </form>
             </div>
-            <div class="card">
+            <div class="card review-list">
                 <h3>Reviews</h3>
                 <?php if ($data['reviews']): ?>
                     <ul>
