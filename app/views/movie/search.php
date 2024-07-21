@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Search</title>
-      <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
+<?php include 'app/views/templates/header.php'; ?>
     <div class="container">
         <h1>Search Movie</h1>
         <form method="GET" action="index.php">
@@ -15,5 +7,4 @@
             <button type="submit">Search</button>
         </form>
     </div>
-</body>
-</html>
+<?php include 'app/views/templates/footer.php'; ?>

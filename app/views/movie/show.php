@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Search Results</title>
-      <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
+<?php include 'app/views/templates/header.php'; ?>
     <div class="container">
         <h1>Movie Search Results</h1>
         <a href="index.php?url=movie/index" class="back-link">Back to Search</a>
@@ -74,5 +66,4 @@
             <div class="alert">No movie found.</div>
         <?php endif; ?>
     </div>
-</body>
-</html>
+<?php include 'app/views/templates/footer.php'; ?>
