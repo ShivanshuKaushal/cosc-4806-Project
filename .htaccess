@@ -1,0 +1,11 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteBase /
+
+# Ensure that the requested file or directory does not exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite rule to convert URL into the desired format
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
